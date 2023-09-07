@@ -1,0 +1,33 @@
+{
+    "name": "CF Filter Recent Actions",
+    "description": "Retrieve and display blog entries exclusively from Codeforces users with a specified minimum rating on each page or if rating of blog is atleast 50",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "images/icon_16.png",
+        "32": "images/icon_32.png",
+        "96": "images/icon_96.png",
+        "192": "images/icon_192.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/icon_32.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://codeforces.com/",
+                "*://codeforces.com/top",
+                "*://codeforces.com/blog/*",
+                "*://codeforces.com/groups/*",
+                "*://codeforces.com/ratings/*",
+                "*://codeforces.com/recent-actions",
+                "*://codeforces.com/profile/*",
+                "*://codeforces.com/search?query=*",
+                "*://codeforces.com/help"
+            ],
+            "js": ["background.js"]
+        }
+    ],
+    "permissions": ["storage"]
+}
