@@ -21,4 +21,4 @@ Enhance your Codeforces experience with CF Filter Recent Actions. Retrieve and d
 2. Set the minimum rating and click "Save".
 3. Refresh the page to see filtered recent actions.
 
-To use this without unpacking the extension, copy-paste [this userscript](https://p.ip.fi/RnbR) in [tampermonkey](https://www.tampermonkey.net/) or a similar tool and update rating and atLeast50 variables on line 21 according to your choice.
+To use this without unpacking the extension, copy-paste [this userscript](https://p.ip.fi/38wi) in [tampermonkey](https://www.tampermonkey.net/) or a similar tool and update rating and atLeast50 variables on line 21 according to your choice.

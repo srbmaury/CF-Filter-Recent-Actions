@@ -59,10 +59,6 @@ async function fetchData() {
         const handlesToFetch = [];
 
         for (const entry of data.result) {
-            if (elementCount >= 20) {
-                break;
-            }
-
             const authorHandle = entry.blogEntry.authorHandle;
             const blogId = entry.blogEntry.id;
 
@@ -80,7 +76,7 @@ async function fetchData() {
         processedBlogIds.clear();
 
         for (const entry of data.result) {
-            if (elementCount >= 20) {
+            if (elementCount >= 25) {
                 break;
             }
 
