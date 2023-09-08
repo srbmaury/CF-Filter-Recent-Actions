@@ -1,15 +1,18 @@
 var rating, atLeast50;
+var blogIds = [];
 var processedAuthors = new Set();
 var processedBlogIds = new Set();
 var elementCount = 0;
 
-chrome.storage.local.get(['rating', 'atLeast50'], function (result) {
+chrome.storage.local.get(['rating', 'atLeast50', 'blogIds'], function (result) {
     if (chrome.runtime.lastError) {
         console.error(chrome.runtime.lastError);
     } else {
         rating = result.rating || 0;
         atLeast50 = result.atLeast50 || false;
-
+        if(result.blogIds){
+            blogIds = result.blogIds;
+        }
         document.querySelector('.recent-actions').parentElement.firstChild.nextSibling.innerHTML += `<span style="font-size:10px; float:right; margin-right:10px; margin-top:5px;">rating >= ${rating}, ${atLeast50.toString().toUpperCase()[0]}</span>`;
         fetchData();
     }
@@ -79,7 +82,6 @@ async function fetchData() {
             if (elementCount >= 25) {
                 break;
             }
-
             const authorHandle = entry.blogEntry.authorHandle;
             const blogId = entry.blogEntry.id;
             const blogRating = entry.blogEntry.rating;
@@ -88,7 +90,7 @@ async function fetchData() {
             const timeDifferenceInSeconds = currentTimeInSeconds - creationTimeInSeconds;
             const daysDifference = Math.floor(timeDifferenceInSeconds / (3600 * 24));
 
-            if (processedBlogIds.has(blogId)) continue;
+            if (blogIds.includes(blogId.toString()) || processedBlogIds.has(blogId)) continue;
             processedBlogIds.add(blogId);
             const userData = userInfoData.find(user => user.handle === authorHandle);
             if (userData && (specialHandles.has(userData.handle) || userData.rating >= rating || (atLeast50 && blogRating >= 50))) {
