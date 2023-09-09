@@ -24,3 +24,10 @@ Enhance your Codeforces experience with CF Filter Recent Actions. Retrieve and d
 To use this without unpacking the extension, copy-paste [this userscript](https://p.ip.fi/38wi) in [tampermonkey](https://www.tampermonkey.net/) or a similar tool and update rating and atLeast50 variables on line 21 according to your choice.
 
 **UPD1** : Now you can also filter out old blogs by writing comma seperated blog ids. Updated userscript is [here](https://p.ip.fi/rRtr). Add blogIds to be filtered out on line 22.
+
+**UPD2** : Also added filter icon in front of each blog entry which you can see on clicking "Recent Actions". To remove filter icons click again on "Recent Actions".
+
+<details>
+  <summary>spoiler</summary>
+  <img src="https://codeforces.com/predownloaded/8e/47/8e47c076b46b469d1c67feef8d46120e1bb68fcb.png">
+</details>
